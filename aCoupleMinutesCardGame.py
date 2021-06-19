@@ -30,7 +30,7 @@ rest2 = []
 rest3 = []
 
 #比對並印出level1的剩餘卡牌號碼有哪些及數量
-for i in range(1, 33):
+for i in range(1, 34):
       
     for n in range(len(had_numbers)):
         
@@ -43,14 +43,15 @@ for i in range(1, 33):
         else:
             rest1.append(i)
             break
+nextStart = n
 print(f'level 1 的剩餘卡牌有{len(rest1)}張')
 print(f'level 1 的剩餘卡牌號碼為：{rest1}')
 print( f'{"-":-^60}')
 
 #比對並印出level2的剩餘卡牌號碼有哪些及數量
-for i in range(34, 66):
+for i in range(34, 67):
       
-    for n in range(len(had_numbers)):
+    for n in range(nextStart, len(had_numbers)):
         
         if had_numbers[n] == i:
             break
@@ -61,19 +62,20 @@ for i in range(34, 66):
         else:
             rest2.append(i)
             break
+nextStart = n
 print(f'level 2 的剩餘卡牌有{len(rest2)}張')
 print(f'level 2 的剩餘卡牌號碼為:{rest2}')
 print( f'{"-":-^60}')
         
 #比對並印出level3的剩餘卡牌號碼有哪些及數量
-for i in range(67, 99):
+for i in range(67, 100):
       
-    for n in range(len(had_numbers)):
+    for n in range(nextStart, len(had_numbers)):
         
         if had_numbers[n] == i:
             break
                
-        elif had_numbers[n] < i:
+        elif (had_numbers[n] < i) and (n != (len(had_numbers)-1)) :
             pass
         
         else:
